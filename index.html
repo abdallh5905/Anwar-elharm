@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنوار الحرم - رحلات عمرة من الرياض إلى مكة</title>
+
+    <!-- Icons & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0A4D68;
+            --primary-soft: #088395;
+            --secondary: #FFFFFF;
+            --accent: #FF9E00;
+            --accent-soft: #FFEECC;
+            --light-bg: #f8fcff;
+            --light-card: #ffffff;
+            --dark-gold: #D4A017;
+            --gray: #5D7285;
+            --line-soft: rgba(255,255,255,0.15);
+            --whatsapp: #25D366;
+            --call: #0A8BF2;
+            --gradient: linear-gradient(135deg, #0A4D68 0%, #088395 50%, #05BFDB 100%);
+            --gradient-gold: linear-gradient(135deg, #FF9E00 0%, #FFD166 50%, #FFEECC 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h1 { 
+            font-size: 3.2rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        h2 {
+            font-size: 2.6rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 140px;
+            height: 5px;
+            background: var(--gradient-gold);
+            border-radius: 999px;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+            font-size: 1.08rem;
+            color: var(--gray);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        a { text-decoration: none; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.05rem;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            gap: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.4), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before { opacity: 1; }
+        .btn:hover { 
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: #0A4D68;
+            font-weight: 900;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.8);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.35);
+        }
+
+        .btn-call {
+            background: var(--call);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(10,139,242,0.35);
+        }
+
+        .btn-dark {
+            background: var(--gradient);
+            color: #fff;
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            inset-inline: 0;
+            top: 0;
+            z-index: 1000;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+            backdrop-filter: blur(0px);
+        }
+
+        header.scrolled {
+            background: rgba(10, 77, 104, 0.95);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            height: 75px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon-circle {
+            width: 65px;
+            height: 65px;
+            border-radius: 20px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 30px rgba(10, 77, 104, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon-circle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 70%);
+        }
+
+        .logo-icon-circle i {
+            font-size: 2.2rem;
+            color: #FFEECC;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .logo-main {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            color: #FFEECC;
+            font-weight: 600;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            border-radius: 999px;
+            background: var(--gradient-gold);
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .nav-links a:hover {
+            color: #FFEECC;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-actions .btn {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 4px;
+            border-radius: 999px;
+            background: #ffffff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 85px;
+            right: -100%;
+            width: 85%;
+            height: calc(100vh - 85px);
+            background: var(--gradient);
+            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+            padding: 35px 30px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 20px;
+            transform: translateX(50px);
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+        }
+
+        .mobile-nav-links li:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-nav-links li:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-nav-links li:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-nav-links li:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-nav-links li:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-nav-links li:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .mobile-nav-links a {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 15px 0;
+            display: block;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #FFEECC;
+            padding-right: 15px;
+            border-bottom-color: #FFEECC;
+        }
+
+        .mobile-nav-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 0 100px;
+            background-image:
+                linear-gradient(135deg, rgba(10, 77, 104, 0.92), rgba(8, 131, 149, 0.94)),
+                url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 158, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(5, 191, 219, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--light-bg), transparent);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            font-weight: 700;
+        }
+
+        .hero-badge span.dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF9E00;
+            box-shadow: 0 0 15px #FF9E00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title-main {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-title-main span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #FFEECC;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-typing-wrapper {
+            margin: 15px auto 25px;
+            font-size: 1.3rem;
+            color: #ffffff;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .hero-typing-wrapper::before {
+            content: '';
+            width: 25px;
+            height: 4px;
+            border-radius: 999px;
+            background: var(--gradient-gold);
+            position: absolute;
+            right: -35px;
+        }
+
+        .hero-typing {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid var(--accent);
+            padding-right: 8px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: var(--accent); }
+            50% { border-color: transparent; }
+        }
+
+        .hero-bullets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+            justify-content: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-bullets span {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-bullets span:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-bullets i {
+            font-size: 1.2rem;
+            color: #FF9E00;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 1rem;
+            color: #d6e9ff;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .hero-stat-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat-item:hover {
+            border-color: #FF9E00;
+            transform: translateY(-3px);
+        }
+
+        .hero-stat-item i {
+            color: #FF9E00;
+            font-size: 1.3rem;
+        }
+
+        /* SECTION INTRO */
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* PACKAGES */
+        .packages {
+            background: radial-gradient(circle at 0% 0%, #f8fcff 0, #e8f7ff 40%, #d6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .packages::before,
+        .packages::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .packages::before {
+            width: 400px;
+            height: 400px;
+            top: -150px;
+            right: -100px;
+        }
+
+        .packages::after {
+            width: 350px;
+            height: 350px;
+            bottom: -120px;
+            left: -100px;
+        }
+
+        .packages .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            align-items: stretch;
+            margin-top: 20px;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 35px 30px 30px;
+            box-shadow: 0 25px 60px rgba(10, 77, 104, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient);
+            z-index: 2;
+        }
+
+        .package-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .package-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 80px rgba(10, 77, 104, 0.2);
+            border-color: transparent;
+        }
+
+        .package-card:hover::after {
+            opacity: 0.03;
+        }
+
+        .package-card.highlight {
+            border-width: 3px;
+            border-image: var(--gradient-gold) 1;
+            box-shadow: 0 30px 70px rgba(255, 158, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .package-card.highlight:hover {
+            transform: translateY(-20px);
+        }
+
+        .package-chip {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            padding: 8px 20px;
+            border-radius: 999px;
+            background: var(--gradient-gold);
+            color: #0A4D68;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            box-shadow: 0 8px 20px rgba(255, 158, 0, 0.3);
+        }
+
+        .package-icon-wrap {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .package-icon-wrap::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5), transparent 70%);
+        }
+
+        .package-icon-wrap i {
+            font-size: 2rem;
+            color: #FFEECC;
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            z-index: 3;
+            position: relative;
+        }
+
+        .package-sub {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            z-index: 3;
+            position: relative;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 25px;
+            z-index: 3;
+            position: relative;
+        }
+
+        .package-features li {
+            font-size: 1rem;
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px dashed rgba(10, 77, 104, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .package-features li:hover {
+            padding-right: 10px;
+            border-bottom-color: #FF9E00;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li i {
+            color: #FF9E00;
+            font-size: 1.1rem;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 158, 0, 0.1);
+            border-radius: 50%;
+        }
+
+        .package-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+            z-index: 3;
+            position: relative;
+        }
+
+        .package-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 15px;
+            text-align: center;
+            font-style: italic;
+            padding: 10px;
+            background: rgba(10, 77, 104, 0.05);
+            border-radius: 10px;
+            z-index: 3;
+            position: relative;
+        }
+
+        /* WHY US */
+        .why-us {
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 158, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .why-us h2 {
+            color: #FFEECC;
+        }
+
+        .why-us .section-intro {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .why-us .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #FF9E00;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 25px;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 15px 30px rgba(255, 158, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5), transparent 70%);
+        }
+
+        .why-icon i {
+            color: #0A4D68;
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #FFEECC;
+        }
+
+        .why-card p {
+            font-size: 1.05rem;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+        }
+
+        /* HOTELS */
+        .hotels {
+            background: #ffffff;
+            position: relative;
+        }
+
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .hotel-card {
+            background: var(--light-card);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 77, 104, 0.1);
+            border: 1px solid rgba(10, 77, 104, 0.08);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 80px rgba(10, 77, 104, 0.2);
+            border-color: #FF9E00;
+        }
+
+        .hotel-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .hotel-card:hover .hotel-image img {
+            transform: scale(1.1);
+        }
+
+        .hotel-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 20px;
+            border-radius: 999px;
+            background: var(--gradient-gold);
+            color: #0A4D68;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(255, 158, 0, 0.3);
+            z-index: 2;
+        }
+
+        .hotel-content {
+            padding: 25px;
+        }
+
+        .hotel-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .hotel-location,
+        .hotel-distance {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .hotel-distance {
+            color: #FF9E00;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hotel-location i,
+        .hotel-distance i {
+            color: #FF9E00;
+            font-size: 1.2rem;
+        }
+
+        .hotel-features {
+            list-style: none;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .hotel-features li {
+            font-size: 0.95rem;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hotel-features li i {
+            color: #FF9E00;
+            width: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .hotel-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* BUSES */
+        .buses {
+            background: #f8fcff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .bus-card {
+            background: var(--light-card);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 77, 104, 0.1);
+            border: 1px solid rgba(10, 77, 104, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .bus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(10, 77, 104, 0.2);
+        }
+
+        .bus-image-container {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bus-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .bus-card:hover .bus-image-container img {
+            transform: scale(1.1);
+        }
+
+        .bus-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 20px;
+            border-radius: 999px;
+            background: var(--gradient-gold);
+            color: #0A4D68;
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(255, 158, 0, 0.3);
+            z-index: 2;
+        }
+
+        .bus-content {
+            padding: 25px;
+        }
+
+        .bus-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .bus-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .bus-features li {
+            font-size: 1.05rem;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px dashed rgba(10, 77, 104, 0.1);
+        }
+
+        .bus-features li:last-child {
+            border-bottom: none;
+        }
+
+        .bus-features li i {
+            color: #FF9E00;
+            width: 24px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .bus-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--gradient);
+            color: #ffffff;
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 158, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 30px rgba(255, 158, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.5), transparent 70%);
+        }
+
+        .footer-logo-icon i {
+            color: #0A4D68;
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .footer-logo-main {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #FFEECC;
+        }
+
+        .footer-logo-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: #FFEECC;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .footer-contact i {
+            color: #FF9E00;
+            font-size: 1.3rem;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .footer-col-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #FFEECC;
+            font-weight: 900;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links li:hover {
+            transform: translateX(-10px);
+        }
+
+        .footer-links a {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a i {
+            font-size: 1rem;
+            color: #FF9E00;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFEECC;
+        }
+
+        .footer-links a:hover i {
+            transform: translateX(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .copyright a {
+            color: #FFEECC;
+            font-weight: 900;
+            transition: all 0.3s ease;
+        }
+
+        .copyright a:hover {
+            color: #FF9E00;
+            text-decoration: underline;
+        }
+
+        /* FLOATING CONTACT BUTTONS */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 900;
+        }
+
+        .floating-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.8rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .floating-btn:hover::before {
+            opacity: 1;
+        }
+
+        .floating-btn.call {
+            background: var(--call);
+        }
+
+        .floating-btn.whatsapp {
+            background: var(--whatsapp);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .hero-title-main {
+                font-size: 3rem;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links,
+            .nav-actions {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-inner {
+                grid-template-columns: minmax(0,1fr);
+            }
+            .footer-grid {
+                grid-template-columns: minmax(0,1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 2.2rem; }
+            .hero {
+                padding: 130px 0 80px;
+            }
+            .hero-title-main {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 80px 0;
+            }
+            .packages-grid,
+            .why-grid,
+            .hotels-grid,
+            .buses-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-bullets {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-actions {
+                flex-direction: column;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .floating-buttons {
+                left: 20px;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .hero-title-main {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .hero-bullets span {
+                font-size: 0.95rem;
+            }
+            .btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            .package-card,
+            .hotel-card,
+            .bus-card,
+            .why-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo-wrap">
+                    <div class="logo-icon-circle">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">أنوار الحرم</span>
+                        <span class="logo-sub">رحلات عمرة من الرياض إلى مكة</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#packages">باقات العمرة</a></li>
+                    <li><a href="#why-us">لماذا أنوار الحرم؟</a></li>
+                    <li><a href="#hotels">فنادق مكة</a></li>
+                    <li><a href="#buses">باصاتنا</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="tel:0540264746" class="btn btn-call">
+                        <i class="fas fa-phone-volume"></i>
+                        اتصل الان بنا
+                    </a>
+                    <a href="https://wa.me/966540264746" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        احجز عبر واتساب
+                    </a>
+                </div>
+
+                <div class="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#packages">باقات العمرة</a></li>
+            <li><a href="#why-us">لماذا أنوار الحرم؟</a></li>
+            <li><a href="#hotels">فنادق مكة</a></li>
+            <li><a href="#buses">باصاتنا</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+        <div class="mobile-nav-actions">
+            <a href="tel:0540264746" class="btn btn-call btn-full">
+                <i class="fas fa-phone-volume"></i>
+                اتصل الان بنا
+            </a>
+            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                <i class="fab fa-whatsapp"></i>
+                احجز عبر واتساب
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        <span>رحلات عمرة 2025 • من الرياض إلى مكة</span>
+                    </div>
+
+                    <h1 class="hero-title-main">
+                        رحلة عمرة منظمة من الرياض
+                        <span>مع أنوار الحرم</span>
+                    </h1>
+
+                    <p class="hero-sub">
+                        نوفر رحلات عمرة منتظمة من الرياض إلى مكة تشمل المواصلات والباصات المكيفة
+                        والسكن في فنادق قريبة من الحرم بأسعار مناسبة.
+                    </p>
+
+                    <div class="hero-typing-wrapper">
+                        <span id="hero-typing" class="hero-typing"></span>
+                    </div>
+
+                    <div class="hero-bullets">
+                        <span><i class="fas fa-star-and-crescent"></i> رحلات عمرة منتظمة من الرياض إلى مكة</span>
+                        <span><i class="fas fa-calendar-alt"></i> مواعيد ثابتة تناسب العائلات والأفراد</span>
+                        <span><i class="fas fa-hotel"></i> فنادق 3 و4 و5 نجوم قريبة من الحرم</span>
+                        <span><i class="fas fa-hands-praying"></i> تنسيق كامل للمواصلات والسكن</span>
+                        <span><i class="fas fa-hand-holding-heart"></i> إمكانية الدفع عند الوصول</span>
+                        <span><i class="fas fa-gem"></i> خيارات اقتصادية و VIP حسب ميزانيتك</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <!-- زر احجز الآن يذهب إلى book.html -->
+                        <a href="book.html" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            احجز الآن
+                        </a>
+                        <a href="https://wa.me/966540264746" class="btn btn-outline-light">
+                            <i class="fab fa-whatsapp"></i>
+                            احجز عبر واتساب
+                        </a>
+                        <a href="tel:0540264746" class="btn btn-outline-light">
+                            <i class="fas fa-phone-volume"></i>
+                            اتصل الان بنا
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat-item">
+                            <i class="fas fa-star"></i>
+                            <span>أكثر من 10,000 معتمر خدمناهم</span>
+                        </div>
+                        <div class="hero-stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>دعم واستفسارات على مدار الساعة</span>
+                        </div>
+                        <div class="hero-stat-item">
+                            <i class="fas fa-kaaba"></i>
+                            <span>تنظيم كامل من المغادرة حتى العودة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2>باقات العمرة من الرياض</h2>
+            <p class="section-intro">
+                اختر الباقة المناسبة لك من بين باقاتنا المختلفة، والتي تشمل باقة اقتصادية
+                وباقة مميزة، بالإضافة إلى خدمة حجز الفنادق لمن يرغب في ترتيب برنامجه بنفسه.
+            </p>
+
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <div class="package-chip">الباقة الاقتصادية</div>
+                    <div class="package-icon-wrap">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3 class="package-title">باقة العمرة الاقتصادية</h3>
+                    <p class="package-sub">
+                        باقة مناسبة للميزانية تشمل الباص والسكن في فنادق مريحة قريبة من الحرم.
+                    </p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> فنادق 3–4 نجوم بمستوى جيد وقريبة من الحرم</li>
+                        <li><i class="fas fa-check-circle"></i> باصات مكيفة ومريحة من الرياض إلى مكة والعودة</li>
+                        <li><i class="fas fa-check-circle"></i> تنسيق أوقات الرحلة مع مواقيت الصلاة</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية حجز غرف عائلية</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية إضافة وجبات حسب الطلب</li>
+                    </ul>
+                    <div class="package-actions">
+                        <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                            <i class="fab fa-whatsapp"></i>
+                            احجز عبر واتساب
+                        </a>
+                        <a href="tel:0540264746" class="btn btn-dark btn-full">
+                            <i class="fas fa-phone-alt"></i>
+                            اتصل الان بنا
+                        </a>
+                        <p class="package-note">
+                            خيار مناسب للأفراد والعائلات الباحثين عن رحلة عمرة منظمة بسعر مناسب.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card highlight">
+                    <div class="package-chip">الباقة المميزة</div>
+                    <div class="package-icon-wrap">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="package-title">باقة العمرة المميزة (5 نجوم)</h3>
+                    <p class="package-sub">
+                        باقة شاملة للسكن في فنادق 5 نجوم قريبة من الحرم مع باصات مريحة وخدمات إضافية.
+                    </p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-gem"></i> فنادق 5 نجوم قريبة جدًا من الحرم</li>
+                        <li><i class="fas fa-gem"></i> باصات مريحة مع مقاعد فاخرة</li>
+                        <li><i class="fas fa-gem"></i> إمكانية استقبال من المطار (بتنسيق مسبق)</li>
+                        <li><i class="fas fa-gem"></i> وجبات إفطار أو نصف إقامة حسب الطلب</li>
+                        <li><i class="fas fa-gem"></i> دعم مخصص أثناء الرحلة عبر الهاتف وواتساب</li>
+                    </ul>
+                    <div class="package-actions">
+                        <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                            <i class="fab fa-whatsapp"></i>
+                            احجز عبر واتساب
+                        </a>
+                        <a href="tel:0540264746" class="btn btn-dark btn-full">
+                            <i class="fas fa-phone-alt"></i>
+                            اتصل الان بنا
+                        </a>
+                        <p class="package-note">
+                            مناسبة لمن يبحث عن مستوى أعلى من الراحة والخدمات أثناء رحلة العمرة.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <div class="package-chip">حجوزات الفنادق</div>
+                    <div class="package-icon-wrap">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <h3 class="package-title">حجوزات فنادق مكة والمدينة</h3>
+                    <p class="package-sub">
+                        خدمة خاصة لمن يرغب في حجز الفنادق فقط مع خيارات متعددة وخصومات على الأسعار.
+                    </p>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> خيارات من فنادق 3 إلى 5 نجوم في مكة والمدينة</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية حجز غرف فردية أو عائلية</li>
+                        <li><i class="fas fa-check-circle"></i> أسعار خاصة للمجموعات والشركات</li>
+                        <li><i class="fas fa-check-circle"></i> إمكانية اختيار الإطلالة حسب التوفر</li>
+                        <li><i class="fas fa-check-circle"></i> متابعة ودعم أثناء فترة الإقامة</li>
+                    </ul>
+                    <div class="package-actions">
+                        <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                            <i class="fab fa-whatsapp"></i>
+                            احجز عبر واتساب
+                        </a>
+                        <a href="tel:0540264746" class="btn btn-dark btn-full">
+                            <i class="fas fa-phone-alt"></i>
+                            اتصل الان بنا
+                        </a>
+                        <p class="package-note">
+                            مناسبة لمن ينظم رحلته بنفسه ويرغب في الاستفادة من أسعار وحجوزات موثوقة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2>لماذا تختار أنوار الحرم؟</h2>
+            <p class="section-intro">
+                نركز على التنظيم الواضح، والالتزام بالمواعيد، وتوفير خيارات متعددة تناسب مختلف
+                الميزانيات، مع متابعة مستمرة قبل الرحلة وأثناءها وبعد العودة.
+            </p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div>
+                        <h3>مواعيد رحلات مناسبة</h3>
+                        <p>رحلات عمرة متكررة خلال الأسبوع من الرياض إلى مكة مع تنسيق مسبق للمواعيد.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <h3>أسعار واضحة</h3>
+                        <p>نوضح سعر الرحلة وما يشمله من خدمات بدون تكاليف مخفية أو مبالغات.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3>متابعة عبر واتساب</h3>
+                        <p>دعم واستفسارات عبر واتساب قبل الحجز وبعده للإجابة عن جميع أسئلتك.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-bus-alt"></i>
+                    </div>
+                    <div>
+                        <h3>باصات مريحة</h3>
+                        <p>باصات مكيفة ومناسبة للرحلات الطويلة بين الرياض ومكة مع عدد مقاعد محدود لراحة أكبر.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div>
+                        <h3>فنادق مختارة</h3>
+                        <p>نختار فنادق معروفة بمستوى جيد وقربها من الحرم، مع خيارات متنوعة حسب الباقة.</p>
+                    </div>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <div>
+                        <h3>خبرة في تنظيم العمرة</h3>
+                        <p>فريق لديه خبرة في تنظيم رحلات العمرة من الرياض والتعامل مع احتياجات المعتمرين.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOTELS -->
+    <section class="hotels" id="hotels">
+        <div class="container">
+            <h2>فنادق مكة المكرمة</h2>
+            <p class="section-intro">
+                نوفر لك خيارات متعددة من الفنادق في مكة المكرمة، بدرجات مختلفة من النجوم،
+                مع التركيز على القرب من الحرم وجودة الخدمة.
+            </p>
+
+            <div class="hotels-grid">
+                <!-- Hotel 1 -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <div class="hotel-badge">خيار مميز</div>
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/463246228.jpg?k=2e3c3a2267b3e5fbd085c604d8eb14149c86ddcf189569b81172fdeea73e71f0&o=" alt="فندق أنوار مكة">
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-title">فندق أنوار مكة</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            شارع إبراهيم الخليل، مكة المكرمة
+                        </div>
+                        <div class="hotel-distance">
+                            <i class="fas fa-walking"></i>
+                            حوالي 1,200 متر من الحرم
+                        </div>
+                        <ul class="hotel-features">
+                            <li><i class="fas fa-wifi"></i> واي فاي مجاني في الغرف والمرافق</li>
+                            <li><i class="fas fa-shuttle-van"></i> خدمة نقل من وإلى الحرم (حسب التوفر)</li>
+                            <li><i class="fas fa-concierge-bell"></i> استقبال على مدار 24 ساعة</li>
+                            <li><i class="fas fa-money-bill-wave"></i> خدمات بنكية وصراف آلي قريبة</li>
+                            <li><i class="fas fa-utensils"></i> مطعم يقدم وجبات متنوعة</li>
+                            <li><i class="fas fa-water"></i> مرافق مريحة للعائلات</li>
+                        </ul>
+                        <div class="hotel-actions">
+                            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز عبر واتساب
+                            </a>
+                            <a href="tel:0540264746" class="btn btn-dark btn-full">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الان بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 2 -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <div class="hotel-badge">5 نجوم</div>
+                        <img src="https://umrahnet.com/wp-content/uploads/2025/06/%D9%81%D9%86%D8%AF%D9%82-%D8%A8%D8%A7%D8%B1%D9%83-%D8%B1%D9%88%D9%8A%D8%A7%D9%84%E2%80%8B-%D9%85%D9%83%D9%87.webp" alt="فندق بارك رويال">
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-title">فندق بارك رويال مكة</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            شارع إبراهيم الخليل، مكة المكرمة
+                        </div>
+                        <div class="hotel-distance">
+                            <i class="fas fa-walking"></i>
+                            حوالي 900 متر من الحرم
+                        </div>
+                        <ul class="hotel-features">
+                            <li><i class="fas fa-tv"></i> شاشات حديثة وقنوات متنوعة</li>
+                            <li><i class="fas fa-wind"></i> تكييف مركزي في جميع الغرف</li>
+                            <li><i class="fas fa-door-open"></i> غرف بإطلالات مختلفة (حسب التوفر)</li>
+                            <li><i class="fas fa-utensils"></i> بوفيه إفطار وخيارات طعام متعددة</li>
+                            <li><i class="fas fa-dumbbell"></i> صالة رياضية للنزلاء</li>
+                            <li><i class="fas fa-spa"></i> خدمات استرخاء (حسب الفندق)</li>
+                        </ul>
+                        <div class="hotel-actions">
+                            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز عبر واتساب
+                            </a>
+                            <a href="tel:0540264746" class="btn btn-dark btn-full">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الان بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <div class="hotel-badge">قرب جيد</div>
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/490718402.jpg?k=65e5e80d21b22c1e90e2e77b916f062313562512f048594de3e818ba0cf63756&o=" alt="فندق فلسطين مكة">
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-title">فندق فلسطين مكة</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            شارع إبراهيم الخليل، مكة المكرمة
+                        </div>
+                        <div class="hotel-distance">
+                            <i class="fas fa-walking"></i>
+                            حوالي 600 متر من الحرم
+                        </div>
+                        <ul class="hotel-features">
+                            <li><i class="fas fa-wifi"></i> إنترنت مجاني في الغرف</li>
+                            <li><i class="fas fa-wind"></i> تكييف مركزي</li>
+                            <li><i class="fas fa-utensils"></i> مطعم داخل الفندق</li>
+                            <li><i class="fas fa-coffee"></i> كافيه يعمل لساعات ممتدة</li>
+                            <li><i class="fas fa-car"></i> مواقف سيارات حسب التوفر</li>
+                            <li><i class="fas fa-business-time"></i> خدمات إضافية للنزلاء</li>
+                        </ul>
+                        <div class="hotel-actions">
+                            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز عبر واتساب
+                            </a>
+                            <a href="tel:0540264746" class="btn btn-dark btn-full">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الان بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUSES -->
+    <section class="buses" id="buses">
+        <div class="container">
+            <h2>باصاتنا</h2>
+            <p class="section-intro">
+                نوفر نوعين من الباصات لرحلات العمرة من الرياض إلى مكة، لتتمكن من اختيار
+                ما يناسب ميزانيتك ودرجة الراحة التي تفضلها.
+            </p>
+
+            <div class="buses-grid">
+                <!-- ECONOMIC BUS -->
+                <div class="bus-card">
+                    <div class="bus-image-container">
+                        <div class="bus-badge">الباصات الاقتصادية</div>
+                        <img src="https://tawaf-kaaba.site/img/e2c3805e-95e8-492a-b6b2-6ce853421823.jpeg" alt="باص الراحة">
+                    </div>
+                    <div class="bus-content">
+                        <h3 class="bus-title">الباصات الاقتصادية</h3>
+                        <ul class="bus-features">
+                            <li><i class="fas fa-star"></i> باصات مكيفة ومناسبة للرحلات الطويلة</li>
+                            <li><i class="fas fa-star"></i> عدد مقاعد مناسب مع توزيع جيد للمساحات</li>
+                            <li><i class="fas fa-star"></i> رحلات منتظمة بين الرياض ومكة والعودة</li>
+                            <li><i class="fas fa-star"></i> سائقون ذوو خبرة في خط الرياض – مكة</li>
+                            <li><i class="fas fa-star"></i> خيار مناسب لأصحاب الميزانية المتوسطة</li>
+                        </ul>
+                        <div class="bus-actions">
+                            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز عبر واتساب
+                            </a>
+                            <a href="tel:0540264746" class="btn btn-dark btn-full">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الان بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIP BUS -->
+                <div class="bus-card">
+                    <div class="bus-image-container">
+                        <div class="bus-badge">باصات VIP</div>
+                        <img src="https://tawaf-kaaba.site/img/3c18d127-08b5-4d6d-8461-58ee715c5911.jpeg" alt="باص النور">
+                    </div>
+                    <div class="bus-content">
+                        <h3 class="bus-title">باصات VIP</h3>
+                        <ul class="bus-features">
+                            <li><i class="fas fa-gem"></i> عدد مقاعد أقل لمساحة أوسع بين الركاب</li>
+                            <li><i class="fas fa-gem"></i> مقاعد مريحة قابلة للإمالة بدرجة أكبر</li>
+                            <li><i class="fas fa-gem"></i> باصات حديثة ومناسبة للرحلات الطويلة</li>
+                            <li><i class="fas fa-gem"></i> خيار مناسب لمن يبحث عن راحة إضافية</li>
+                            <li><i class="fas fa-gem"></i> متاح حسب المواعيد والحجوزات المبكرة</li>
+                        </ul>
+                        <div class="bus-actions">
+                            <a href="https://wa.me/966540264746" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i>
+                                احجز عبر واتساب
+                            </a>
+                            <a href="tel:0540264746" class="btn btn-dark btn-full">
+                                <i class="fas fa-phone-alt"></i>
+                                اتصل الان بنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- العمود الأول -->
+                <div>
+                    <div class="footer-logo-wrap">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <div>
+                            <div class="footer-logo-main">أنوار الحرم</div>
+                            <div class="footer-logo-sub">تنظيم رحلات العمرة من الرياض إلى مكة</div>
+                        </div>
+                    </div>
+                    <div class="footer-about">
+                        <p>
+                            أنوار الحرم تقدم رحلات عمرة منظمة من الرياض إلى مكة تشمل الباصات
+                            والفنادق وخيارات مختلفة تناسب العائلات والأفراد، مع متابعة ودعم قبل
+                            الرحلة وأثناءها.
+                        </p>
+                        <div class="footer-contact">
+                            <p><i class="fas fa-phone-volume"></i> 0540264746</p>
+                            <p><i class="fab fa-whatsapp"></i> 0540264746</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- العمود الثاني -->
+                <div>
+                    <h4 class="footer-col-title">روابط مهمة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-angle-left"></i> الرئيسية</a></li>
+                        <li><a href="#packages"><i class="fas fa-angle-left"></i> باقات العمرة</a></li>
+                        <li><a href="#why-us"><i class="fas fa-angle-left"></i> لماذا أنوار الحرم؟</a></li>
+                        <li><a href="#hotels"><i class="fas fa-angle-left"></i> فنادق مكة</a></li>
+                        <li><a href="#buses"><i class="fas fa-angle-left"></i> باصاتنا</a></li>
+                        <li><a href="#contact"><i class="fas fa-angle-left"></i> تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2025 أنوار الحرم لتنظيم رحلات العمرة من الرياض. جميع الحقوق محفوظة.
+                <br>
+                تصميم وتنفيذ
+                <a href="https://wa.me/966540264746" target="_blank" rel="noopener">
+                    أنوار الحرم
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="floating-buttons">
+        <a href="tel:0540264746" class="floating-btn call">
+            <i class="fas fa-phone-volume"></i>
+        </a>
+        <a href="https://wa.me/966540264746" class="floating-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Header Scroll Background
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // جملة متغيرة بتأثير الكيبورد (نصوص أكثر واقعية)
+        const phrases = [
+            "رحلات عمرة منتظمة من الرياض إلى مكة مع حجز فنادق قريبة من الحرم.",
+            "باقات مختلفة للعمرة تناسب الأفراد والعائلات وميزانيات متعددة.",
+            "إمكانية حجز الباص والسكن معًا أو حجز الفنادق فقط حسب رغبتك.",
+            "دعم عبر الهاتف وواتساب للرد على استفساراتك قبل الحجز وبعده.",
+            "خيار الباصات الاقتصادية وباصات VIP لدرجة راحة أعلى أثناء السفر.",
+            "تنظيم واضح لمواعيد الانطلاق والعودة وتفاصيل البرنامج."
+        ];
+
+        const typingEl = document.getElementById('hero-typing');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typingSpeed = 90;
+        const deletingSpeed = 60;
+        const pauseAtEnd = 1500;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (!isDeleting) {
+                typingEl.textContent = currentPhrase.slice(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeLoop, pauseAtEnd);
+                    return;
+                }
+            } else {
+                typingEl.textContent = currentPhrase.slice(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+            }
+
+            setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        if (typingEl) {
+            typeLoop();
+        }
+
+        // إضافة تأثيرات عند التمرير
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // مراقبة العناصر لإضافة تأثيرات
+        document.querySelectorAll('.package-card, .why-card, .hotel-card, .bus-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
